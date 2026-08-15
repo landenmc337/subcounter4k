@@ -3,6 +3,12 @@ const counterText = document.getElementById("counter-text");
 let currentSubscribers = 0;
 let subscriberGoal = 150;
 
+const API_BASE =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+        ? "http://localhost:3000"
+        : "";
+
 function calculateGoal(current) {
     const step = 25;
 
@@ -14,25 +20,35 @@ function calculateGoal(current) {
 }
 
 function updateCounter() {
-    counterText.textContent = `${currentSubscribers} / ${subscriberGoal}`;
+    counterText.textContent =
+        `${currentSubscribers} / ${subscriberGoal}`;
 }
 
 async function updateSubscriberCount() {
     try {
         const response = await fetch(
-            "http://localhost:3000/api/subscribers"
+            `${API_BASE}/api/subscribers`
         );
 
         if (!response.ok) {
-            throw new Error("Failed to get subscriber count.");
+            throw new Error(
+                "Failed to get subscriber count."
+            );
         }
 
         const data = await response.json();
 
-        currentSubscribers = Number(data.current) || 0;
+        currentSubscribers =
+            Number(data.current) || 0;
 
-        if (currentSubscribers >= subscriberGoal) {
-            subscriberGoal = calculateGoal(currentSubscribers);
+        if (
+            currentSubscribers >=
+            subscriberGoal
+        ) {
+            subscriberGoal =
+                calculateGoal(
+                    currentSubscribers
+                );
         }
 
         updateCounter();
