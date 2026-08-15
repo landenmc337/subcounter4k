@@ -27,7 +27,10 @@ function updateCounter() {
 async function updateSubscriberCount() {
     try {
         const response = await fetch(
-            `${API_BASE}/api/subscribers`
+            `${API_BASE}/api/subscribers`,
+            {
+                cache: "no-store"
+            }
         );
 
         if (!response.ok) {
@@ -38,8 +41,11 @@ async function updateSubscriberCount() {
 
         const data = await response.json();
 
-        currentSubscribers =
+        const newSubscriberCount =
             Number(data.current) || 0;
+
+        currentSubscribers =
+            newSubscriberCount;
 
         if (
             currentSubscribers >=
@@ -61,7 +67,6 @@ async function updateSubscriberCount() {
     }
 }
 
-updateCounter();
 updateSubscriberCount();
 
 setInterval(
