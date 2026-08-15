@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Subscriber Counter</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,9 +32,9 @@
 
                 <linearGradient
                     id="counter-gradient"
-                    x1="-900"
+                    x1="0"
                     y1="0"
-                    x2="0"
+                    x2="900"
                     y2="0"
                     gradientUnits="userSpaceOnUse"
                 >
@@ -45,19 +50,14 @@
 
                     <stop offset="100%" stop-color="#008CFF"></stop>
 
-                    <animate
-                        attributeName="x1"
-                        values="-900;0;900"
+                    <animateTransform
+                        attributeName="gradientTransform"
+                        type="translate"
+                        from="0 0"
+                        to="-900 0"
                         dur="6s"
                         repeatCount="indefinite"
-                    ></animate>
-
-                    <animate
-                        attributeName="x2"
-                        values="0;900;1800"
-                        dur="6s"
-                        repeatCount="indefinite"
-                    ></animate>
+                    />
 
                 </linearGradient>
 
@@ -68,7 +68,9 @@
                 x="450"
                 y="125"
                 text-anchor="middle"
-            >0 / 0</text>
+            >
+                0 / 0
+            </text>
 
         </svg>
 
