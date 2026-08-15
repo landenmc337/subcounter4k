@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriber Counter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="counter-container">
+
+        <svg
+            class="counter-svg"
+            viewBox="0 0 900 180"
+            role="img"
+            aria-label="Subscriber goal counter"
+        >
+
+            <defs>
+
+                <linearGradient
+                    id="counter-gradient"
+                    x1="-900"
+                    y1="0"
+                    x2="0"
+                    y2="0"
+                    gradientUnits="userSpaceOnUse"
+                >
+
+                    <stop offset="0%" stop-color="#FF6A00"></stop>
+                    <stop offset="18%" stop-color="#FF6A00"></stop>
+
+                    <stop offset="38%" stop-color="#008CFF"></stop>
+                    <stop offset="50%" stop-color="#008CFF"></stop>
+
+                    <stop offset="70%" stop-color="#FF6A00"></stop>
+                    <stop offset="82%" stop-color="#FF6A00"></stop>
+
+                    <stop offset="100%" stop-color="#008CFF"></stop>
+
+                    <animate
+                        attributeName="x1"
+                        values="-900;0;900"
+                        dur="6s"
+                        repeatCount="indefinite"
+                    ></animate>
+
+                    <animate
+                        attributeName="x2"
+                        values="0;900;1800"
+                        dur="6s"
+                        repeatCount="indefinite"
+                    ></animate>
+
+                </linearGradient>
+
+            </defs>
+
+            <text
+                id="counter-text"
+                x="450"
+                y="125"
+                text-anchor="middle"
+            >0 / 0</text>
+
+        </svg>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
