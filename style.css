@@ -8,18 +8,24 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
+
     background: transparent;
+
     overflow: hidden;
 }
 
 body {
-    font-family: "Orbitron", sans-serif;
+    font-family:
+        "Orbitron",
+        sans-serif;
 }
 
 .counter-container {
     width: 100%;
     height: 100%;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
@@ -27,13 +33,194 @@ body {
 .counter-svg {
     width: min(900px, 95vw);
     height: auto;
+
     overflow: visible;
 }
 
-#counter-text {
-    font-family: "Orbitron", sans-serif;
+
+/* ========================================================= */
+/* MAIN COUNTER */
+/* ========================================================= */
+
+#counter-text,
+#counter-mask-text,
+#counter-glow {
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
     font-size: 100px;
+
     font-weight: 900;
-    letter-spacing: 1px;
-    fill: url(#counter-gradient);
+
+    letter-spacing: 0;
+}
+
+
+/* ========================================================= */
+/* FIRE GLOW */
+/* ========================================================= */
+
+#counter-glow {
+
+    fill: none;
+
+    stroke: #ff5a00;
+
+    stroke-width: 7;
+
+    opacity: .55;
+
+    filter: url(#fire-glow);
+
+}
+
+
+/* ========================================================= */
+/* MAIN FIRE TEXT */
+/* ========================================================= */
+
+#counter-text {
+
+    fill: url(#fire-gradient);
+
+    stroke: #ff4d00;
+
+    stroke-width: 2;
+
+    paint-order: stroke fill;
+
+    filter: url(#fire-distortion);
+
+}
+
+
+/* ========================================================= */
+/* FLAME WAVES */
+/* ========================================================= */
+
+.flame-wave {
+
+    fill: #ff5a00;
+
+    opacity: .35;
+
+    transform-origin: center bottom;
+
+}
+
+
+.flame-wave-1 {
+
+    animation:
+        flame-rise-1
+        2.2s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+.flame-wave-2 {
+
+    fill: #ffd000;
+
+    opacity: .28;
+
+    animation:
+        flame-rise-2
+        1.7s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+/* ========================================================= */
+/* FLAME MOVEMENT */
+/* ========================================================= */
+
+@keyframes flame-rise-1 {
+
+    0% {
+        transform:
+            translateY(18px)
+            scaleY(.92);
+    }
+
+    50% {
+        transform:
+            translateY(-4px)
+            scaleY(1.06);
+    }
+
+    100% {
+        transform:
+            translateY(14px)
+            scaleY(.96);
+    }
+
+}
+
+
+@keyframes flame-rise-2 {
+
+    0% {
+        transform:
+            translateY(12px)
+            translateX(-8px)
+            scaleY(.95);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            translateX(8px)
+            scaleY(1.08);
+    }
+
+    100% {
+        transform:
+            translateY(10px)
+            translateX(-5px)
+            scaleY(.97);
+    }
+
+}
+
+
+/* ========================================================= */
+/* FIRE FLICKER */
+/* ========================================================= */
+
+#counter-text {
+
+    animation:
+        fire-flicker
+        1.8s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes fire-flicker {
+
+    0% {
+        opacity: .94;
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: .96;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }
