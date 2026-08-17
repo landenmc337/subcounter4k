@@ -35,6 +35,7 @@ body {
    ========================================================= */
 
 .counter-text {
+
     font-family: "Orbitron", sans-serif;
 
     font-size: clamp(
@@ -55,62 +56,62 @@ body {
 
 
     /* =====================================================
-       LIQUID BLUE + ORANGE
+       ORANGE + BLUE FLOWING GRADIENT
        ===================================================== */
 
     background:
 
-        /* Blue flow */
+        /* BLUE */
         radial-gradient(
-            ellipse 35% 70%
-            at 15% 65%,
-            #00bfff 0%,
-            #0077ff 35%,
-            transparent 70%
+            ellipse 45% 80%
+            at 10% 50%,
+            #007bff 0%,
+            #0066ff 35%,
+            transparent 75%
         ),
 
-        /* Orange flow */
+        /* ORANGE */
         radial-gradient(
-            ellipse 45% 65%
-            at 42% 55%,
-            #ff3b00 0%,
-            #ff6500 35%,
-            transparent 72%
-        ),
-
-        /* Blue flow */
-        radial-gradient(
-            ellipse 42% 65%
-            at 68% 40%,
-            #008cff 0%,
-            #0066ff 40%,
-            transparent 72%
-        ),
-
-        /* Orange flow */
-        radial-gradient(
-            ellipse 40% 70%
-            at 88% 65%,
+            ellipse 45% 80%
+            at 35% 50%,
             #ff4d00 0%,
-            #ff7800 38%,
-            transparent 72%
+            #ff7200 35%,
+            transparent 75%
         ),
 
-        /* Deep base */
+        /* BLUE */
+        radial-gradient(
+            ellipse 45% 80%
+            at 60% 50%,
+            #006eff 0%,
+            #00aaff 35%,
+            transparent 75%
+        ),
+
+        /* ORANGE */
+        radial-gradient(
+            ellipse 45% 80%
+            at 85% 50%,
+            #ff4500 0%,
+            #ff7800 35%,
+            transparent 75%
+        ),
+
+        /* BASE */
         linear-gradient(
             110deg,
             #0066ff 0%,
             #008cff 20%,
-            #ff4500 42%,
-            #ff7200 55%,
-            #006eff 73%,
-            #008cff 88%,
+            #ff4d00 40%,
+            #ff7200 52%,
+            #006eff 72%,
+            #008cff 85%,
             #ff4d00 100%
         );
 
 
     /* =====================================================
-       GRADIENT SIZE
+       LARGE GRADIENTS = SLOW, SMOOTH COLOR MOVEMENT
        ===================================================== */
 
     background-size:
@@ -118,13 +119,9 @@ body {
         220% 220%,
         240% 240%,
         260% 260%,
-        230% 230%,
+        240% 240%,
         300% 300%;
 
-
-    /* =====================================================
-       STARTING POSITIONS
-       ===================================================== */
 
     background-position:
 
@@ -139,19 +136,19 @@ body {
 
 
     /* =====================================================
-       SMOOTH LIQUID MOVEMENT
+       CONTINUOUS FLOW
        ===================================================== */
 
     animation:
         liquidFlow
-        8s
+        10s
         ease-in-out
         infinite
         alternate;
 
 
     /* =====================================================
-       PUT GRADIENT INSIDE TEXT
+       GRADIENT INSIDE THE TEXT
        ===================================================== */
 
     color: transparent;
@@ -163,21 +160,36 @@ body {
 
 
     /* =====================================================
-       SUBTLE BLUE / ORANGE GLOW
+       SUBTLE BLUE + ORANGE GLOW
        ===================================================== */
 
     text-shadow:
 
-        0 0 3px rgba(0, 102, 255, 0.65),
+        0 0 3px rgba(
+            0,
+            102,
+            255,
+            0.55
+        ),
 
-        0 0 8px rgba(0, 102, 255, 0.35),
+        0 0 8px rgba(
+            0,
+            102,
+            255,
+            0.25
+        ),
 
-        0 0 12px rgba(255, 69, 0, 0.25);
+        0 0 12px rgba(
+            255,
+            69,
+            0,
+            0.20
+        );
 }
 
 
 /* =========================================================
-   LIQUID MOTION
+   LIQUID FLOW ANIMATION
    ========================================================= */
 
 @keyframes liquidFlow {
@@ -186,10 +198,10 @@ body {
 
         background-position:
 
-            0% 55%,
-            100% 45%,
             0% 50%,
-            100% 55%,
+            100% 50%,
+            0% 50%,
+            100% 50%,
             0% 50%;
     }
 
@@ -198,11 +210,11 @@ body {
 
         background-position:
 
-            35% 45%,
-            65% 55%,
             25% 45%,
-            75% 50%,
-            25% 45%;
+            75% 55%,
+            20% 50%,
+            80% 45%,
+            25% 50%;
     }
 
 
@@ -210,11 +222,11 @@ body {
 
         background-position:
 
-            70% 55%,
-            30% 45%,
-            65% 55%,
-            35% 45%,
-            50% 55%;
+            50% 50%,
+            50% 50%,
+            50% 45%,
+            50% 55%,
+            50% 50%;
     }
 
 
@@ -222,10 +234,10 @@ body {
 
         background-position:
 
-            35% 45%,
-            65% 55%,
-            25% 50%,
-            75% 45%,
+            75% 55%,
+            25% 45%,
+            80% 50%,
+            20% 55%,
             75% 50%;
     }
 
@@ -234,10 +246,10 @@ body {
 
         background-position:
 
-            0% 55%,
-            100% 45%,
+            100% 50%,
             0% 50%,
-            100% 55%,
-            0% 50%;
+            100% 50%,
+            0% 50%,
+            100% 50%;
     }
 }
