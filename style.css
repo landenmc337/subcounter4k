@@ -24,6 +24,7 @@ body {
     height: 100%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
@@ -37,7 +38,7 @@ body {
 
 
 /* =========================================================
-   COUNTER
+   ONE COUNTER
    ========================================================= */
 
 #counter-text {
@@ -52,28 +53,46 @@ body {
 
     fill: url(#fire-gradient);
 
-    stroke: #ff5a00;
+    stroke: #ff4d00;
 
     stroke-width: 2px;
 
     paint-order: stroke fill;
+
+    filter: url(#fire-glow);
+
+    animation: fireFlicker 1.4s ease-in-out infinite alternate;
 }
 
 
 /* =========================================================
-   FIRE LAYER
+   SUBTLE FIRE FLICKER
    ========================================================= */
 
-.fire-layer {
-    pointer-events: none;
-}
+@keyframes fireFlicker {
 
+    0% {
+        opacity: .94;
+    }
 
-/* =========================================================
-   MASK IS NEVER DISPLAYED
-   ========================================================= */
+    20% {
+        opacity: 1;
+    }
 
-#counter-mask-text {
-    fill: white;
-    stroke: none;
+    42% {
+        opacity: .96;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    82% {
+        opacity: .97;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }

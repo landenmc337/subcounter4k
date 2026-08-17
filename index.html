@@ -19,102 +19,149 @@
 
 <body>
 
-<main class="counter-container">
+    <main class="counter-container">
 
-    <svg
-        class="counter-svg"
-        viewBox="0 0 900 180"
-        role="img"
-        aria-label="Subscriber goal counter"
-    >
-
-        <defs>
-
-            <!-- FIRE GRADIENT -->
-            <linearGradient
-                id="fire-gradient"
-                x1="0"
-                y1="1"
-                x2="0"
-                y2="0"
-            >
-
-                <stop offset="0%" stop-color="#006eff"/>
-                <stop offset="15%" stop-color="#00bfff"/>
-                <stop offset="30%" stop-color="#ff3b00"/>
-                <stop offset="48%" stop-color="#ff6500"/>
-                <stop offset="65%" stop-color="#ffad00"/>
-                <stop offset="82%" stop-color="#fff05c"/>
-                <stop offset="100%" stop-color="#ff4500"/>
-
-                <animate
-                    attributeName="y1"
-                    values="1;0.7;1"
-                    dur="2.5s"
-                    repeatCount="indefinite"
-                />
-
-                <animate
-                    attributeName="y2"
-                    values="0;-0.3;0"
-                    dur="2.5s"
-                    repeatCount="indefinite"
-                />
-
-            </linearGradient>
-
-
-            <!-- MASK -->
-            <clipPath id="counter-mask">
-
-                <text
-                    id="counter-mask-text"
-                    x="450"
-                    y="125"
-                    text-anchor="middle"
-                >0 / 0</text>
-
-            </clipPath>
-
-        </defs>
-
-
-        <!-- ================================================= -->
-        <!-- ONLY VISIBLE TEXT -->
-        <!-- ================================================= -->
-
-        <text
-            id="counter-text"
-            x="450"
-            y="125"
-            text-anchor="middle"
-        >0 / 0</text>
-
-
-        <!-- ================================================= -->
-        <!-- FIRE EFFECT INSIDE THE TEXT -->
-        <!-- ================================================= -->
-
-        <g
-            class="fire-layer"
-            clip-path="url(#counter-mask)"
+        <svg
+            class="counter-svg"
+            viewBox="0 0 900 180"
+            role="img"
+            aria-label="Subscriber goal counter"
         >
 
-            <rect
-                x="0"
-                y="0"
-                width="900"
-                height="180"
-                fill="url(#fire-gradient)"
-            />
+            <defs>
 
-        </g>
+                <!-- ================================================= -->
+                <!-- DEEP FIRE GRADIENT -->
+                <!-- ================================================= -->
 
-    </svg>
+                <linearGradient
+                    id="fire-gradient"
+                    x1="0"
+                    y1="1"
+                    x2="0"
+                    y2="0"
+                    gradientUnits="objectBoundingBox"
+                >
 
-</main>
+                    <stop
+                        offset="0%"
+                        stop-color="#004cff"
+                    />
 
-<script src="script.js"></script>
+                    <stop
+                        offset="10%"
+                        stop-color="#00a8ff"
+                    />
+
+                    <stop
+                        offset="22%"
+                        stop-color="#006cff"
+                    />
+
+                    <stop
+                        offset="30%"
+                        stop-color="#ff3000"
+                    />
+
+                    <stop
+                        offset="43%"
+                        stop-color="#ff4d00"
+                    />
+
+                    <stop
+                        offset="57%"
+                        stop-color="#ff8500"
+                    />
+
+                    <stop
+                        offset="70%"
+                        stop-color="#ffc400"
+                    />
+
+                    <stop
+                        offset="82%"
+                        stop-color="#fff06a"
+                    />
+
+                    <stop
+                        offset="92%"
+                        stop-color="#ff7200"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#ff2500"
+                    />
+
+                    <!-- Continuous movement -->
+
+                    <animateTransform
+                        attributeName="gradientTransform"
+                        type="translate"
+                        values="
+                            0 0;
+                            0 .12;
+                            0 0;
+                            0 -.12;
+                            0 0
+                        "
+                        dur="2.8s"
+                        repeatCount="indefinite"
+                    />
+
+                </linearGradient>
+
+
+                <!-- ================================================= -->
+                <!-- FIRE GLOW -->
+                <!-- ================================================= -->
+
+                <filter
+                    id="fire-glow"
+                    x="-30%"
+                    y="-40%"
+                    width="160%"
+                    height="180%"
+                >
+
+                    <feGaussianBlur
+                        stdDeviation="4"
+                        result="blur"
+                    />
+
+                    <feMerge>
+
+                        <feMergeNode
+                            in="blur"
+                        />
+
+                        <feMergeNode
+                            in="SourceGraphic"
+                        />
+
+                    </feMerge>
+
+                </filter>
+
+            </defs>
+
+
+            <!-- ================================================= -->
+            <!-- ONE SINGLE COUNTER -->
+            <!-- ================================================= -->
+
+            <text
+                id="counter-text"
+                x="450"
+                y="125"
+                text-anchor="middle"
+            >0 / 0</text>
+
+        </svg>
+
+    </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
