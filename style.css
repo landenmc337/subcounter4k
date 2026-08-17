@@ -24,7 +24,6 @@ body {
     height: 100%;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
@@ -36,11 +35,6 @@ body {
     overflow: visible;
 }
 
-
-/* =========================================================
-   ONE COUNTER
-   ========================================================= */
-
 #counter-text {
 
     font-family: "Orbitron", sans-serif;
@@ -51,48 +45,12 @@ body {
 
     letter-spacing: -2px;
 
-    fill: url(#fire-gradient);
+    fill: url(#flow-gradient);
 
-    stroke: #ff4d00;
+    stroke: rgba(255, 255, 255, 0.15);
 
-    stroke-width: 2px;
+    stroke-width: 1px;
 
     paint-order: stroke fill;
-
-    filter: url(#fire-glow);
-
-    animation: fireFlicker 1.4s ease-in-out infinite alternate;
-}
-
-
-/* =========================================================
-   SUBTLE FIRE FLICKER
-   ========================================================= */
-
-@keyframes fireFlicker {
-
-    0% {
-        opacity: .94;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    42% {
-        opacity: .96;
-    }
-
-    65% {
-        opacity: 1;
-    }
-
-    82% {
-        opacity: .97;
-    }
-
-    100% {
-        opacity: 1;
-    }
 
 }
