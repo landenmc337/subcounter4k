@@ -24,33 +24,220 @@ body {
     height: 100%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
 
-.counter-svg {
-    width: min(900px, 95vw);
-    height: auto;
 
-    overflow: visible;
-}
+/* =========================================================
+   MAIN COUNTER
+   ========================================================= */
 
-#counter-text {
-
+.counter-text {
     font-family: "Orbitron", sans-serif;
 
-    font-size: 100px;
+    font-size: clamp(
+        70px,
+        11vw,
+        110px
+    );
 
     font-weight: 900;
 
-    letter-spacing: -2px;
+    font-style: italic;
 
-    fill: url(#flow-gradient);
+    letter-spacing: -3px;
 
-    stroke: rgba(255, 255, 255, 0.15);
+    line-height: 1;
 
-    stroke-width: 1px;
+    white-space: nowrap;
 
-    paint-order: stroke fill;
 
+    /* =====================================================
+       LIQUID BLUE + ORANGE
+       ===================================================== */
+
+    background:
+
+        /* Blue flow */
+        radial-gradient(
+            ellipse 35% 70%
+            at 15% 65%,
+            #00bfff 0%,
+            #0077ff 35%,
+            transparent 70%
+        ),
+
+        /* Orange flow */
+        radial-gradient(
+            ellipse 45% 65%
+            at 42% 55%,
+            #ff3b00 0%,
+            #ff6500 35%,
+            transparent 72%
+        ),
+
+        /* Blue flow */
+        radial-gradient(
+            ellipse 42% 65%
+            at 68% 40%,
+            #008cff 0%,
+            #0066ff 40%,
+            transparent 72%
+        ),
+
+        /* Orange flow */
+        radial-gradient(
+            ellipse 40% 70%
+            at 88% 65%,
+            #ff4d00 0%,
+            #ff7800 38%,
+            transparent 72%
+        ),
+
+        /* Deep base */
+        linear-gradient(
+            110deg,
+            #0066ff 0%,
+            #008cff 20%,
+            #ff4500 42%,
+            #ff7200 55%,
+            #006eff 73%,
+            #008cff 88%,
+            #ff4d00 100%
+        );
+
+
+    /* =====================================================
+       GRADIENT SIZE
+       ===================================================== */
+
+    background-size:
+
+        220% 220%,
+        240% 240%,
+        260% 260%,
+        230% 230%,
+        300% 300%;
+
+
+    /* =====================================================
+       STARTING POSITIONS
+       ===================================================== */
+
+    background-position:
+
+        0% 50%,
+        100% 50%,
+        0% 50%,
+        100% 50%,
+        0% 50%;
+
+
+    background-repeat: no-repeat;
+
+
+    /* =====================================================
+       SMOOTH LIQUID MOVEMENT
+       ===================================================== */
+
+    animation:
+        liquidFlow
+        8s
+        ease-in-out
+        infinite
+        alternate;
+
+
+    /* =====================================================
+       PUT GRADIENT INSIDE TEXT
+       ===================================================== */
+
+    color: transparent;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+
+    /* =====================================================
+       SUBTLE BLUE / ORANGE GLOW
+       ===================================================== */
+
+    text-shadow:
+
+        0 0 3px rgba(0, 102, 255, 0.65),
+
+        0 0 8px rgba(0, 102, 255, 0.35),
+
+        0 0 12px rgba(255, 69, 0, 0.25);
+}
+
+
+/* =========================================================
+   LIQUID MOTION
+   ========================================================= */
+
+@keyframes liquidFlow {
+
+    0% {
+
+        background-position:
+
+            0% 55%,
+            100% 45%,
+            0% 50%,
+            100% 55%,
+            0% 50%;
+    }
+
+
+    25% {
+
+        background-position:
+
+            35% 45%,
+            65% 55%,
+            25% 45%,
+            75% 50%,
+            25% 45%;
+    }
+
+
+    50% {
+
+        background-position:
+
+            70% 55%,
+            30% 45%,
+            65% 55%,
+            35% 45%,
+            50% 55%;
+    }
+
+
+    75% {
+
+        background-position:
+
+            35% 45%,
+            65% 55%,
+            25% 50%,
+            75% 45%,
+            75% 50%;
+    }
+
+
+    100% {
+
+        background-position:
+
+            0% 55%,
+            100% 45%,
+            0% 50%,
+            100% 55%,
+            0% 50%;
+    }
 }

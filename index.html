@@ -19,61 +19,16 @@
 
 <body>
 
-<main class="counter-container">
+    <main class="counter-container">
 
-    <svg
-        class="counter-svg"
-        viewBox="0 0 900 180"
-    >
-
-        <defs>
-
-            <linearGradient
-                id="flow-gradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="0%"
-                spreadMethod="repeat"
-            >
-
-                <stop offset="0%" stop-color="#0066ff"/>
-                <stop offset="16%" stop-color="#7b2cff"/>
-                <stop offset="32%" stop-color="#ff1493"/>
-                <stop offset="48%" stop-color="#ff3b00"/>
-                <stop offset="64%" stop-color="#ff9500"/>
-                <stop offset="80%" stop-color="#ffe600"/>
-                <stop offset="100%" stop-color="#0066ff"/>
-
-                <animateTransform
-                    attributeName="gradientTransform"
-                    type="translate"
-                    values="
-                        -0.8 0;
-                        0.8 0;
-                        -0.8 0
-                    "
-                    dur="7s"
-                    repeatCount="indefinite"
-                />
-
-            </linearGradient>
-
-        </defs>
-
-
-        <text
+        <div
             id="counter-text"
-            x="450"
-            y="125"
-            text-anchor="middle"
-        >0 / 0</text>
+            class="counter-text"
+        >0 / 0</div>
 
-    </svg>
+    </main>
 
-</main>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
