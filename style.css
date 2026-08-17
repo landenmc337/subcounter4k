@@ -24,6 +24,7 @@ body {
     height: 100%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
@@ -37,11 +38,11 @@ body {
 
 
 /* =========================================================
-   COUNTER
+   MAIN COUNTER
    ========================================================= */
 
 #counter-text,
-#counter-mask-text {
+#counter-sheen {
 
     font-family: "Orbitron", sans-serif;
 
@@ -50,18 +51,20 @@ body {
     font-weight: 900;
 
     letter-spacing: -2px;
+
+    dominant-baseline: auto;
 }
 
 
 /* =========================================================
-   ACTUAL VISIBLE TEXT
+   FIRE NUMBERS
    ========================================================= */
 
 #counter-text {
 
     fill: url(#fire-gradient);
 
-    stroke: #ff6500;
+    stroke: #ff5a00;
 
     stroke-width: 2px;
 
@@ -70,115 +73,18 @@ body {
 
 
 /* =========================================================
-   MASK TEXT
-   IMPORTANT: NEVER DISPLAY IT
+   MOVING FIRE HIGHLIGHT
    ========================================================= */
 
-#counter-mask-text {
+#counter-sheen {
 
-    fill: white;
+    fill: url(#fire-sheen);
 
     stroke: none;
 
     pointer-events: none;
-}
 
+    opacity: .7;
 
-/* =========================================================
-   FIRE
-   ========================================================= */
-
-.fire-effect {
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   FLAME 1
-   ========================================================= */
-
-.flame-orange {
-
-    fill: #ff5a00;
-
-    opacity: .55;
-
-    animation:
-        orangeFlame
-        1.8s
-        ease-in-out
-        infinite alternate;
-}
-
-
-/* =========================================================
-   FLAME 2
-   ========================================================= */
-
-.flame-blue {
-
-    fill: #008cff;
-
-    opacity: .4;
-
-    animation:
-        blueFlame
-        2.2s
-        ease-in-out
-        infinite alternate;
-}
-
-
-/* =========================================================
-   ANIMATION
-   ========================================================= */
-
-@keyframes orangeFlame {
-
-    0% {
-        transform:
-            translateX(-20px)
-            translateY(15px)
-            scaleY(.9);
-    }
-
-    50% {
-        transform:
-            translateX(5px)
-            translateY(-5px)
-            scaleY(1.05);
-    }
-
-    100% {
-        transform:
-            translateX(25px)
-            translateY(10px)
-            scaleY(.94);
-    }
-}
-
-
-@keyframes blueFlame {
-
-    0% {
-        transform:
-            translateX(20px)
-            translateY(15px)
-            scaleY(.9);
-    }
-
-    50% {
-        transform:
-            translateX(-5px)
-            translateY(-3px)
-            scaleY(1.04);
-    }
-
-    100% {
-        transform:
-            translateX(-25px)
-            translateY(10px)
-            scaleY(.94);
-    }
+    mix-blend-mode: screen;
 }
