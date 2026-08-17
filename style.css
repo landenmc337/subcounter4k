@@ -31,7 +31,7 @@ body {
 
 
 /* =========================================================
-   MAIN COUNTER
+   COUNTER
    ========================================================= */
 
 .counter-text {
@@ -56,200 +56,114 @@ body {
 
 
     /* =====================================================
-       ORANGE + BLUE FLOWING GRADIENT
+       SIMPLE LIQUID ORANGE → BLUE
        ===================================================== */
 
     background:
 
-        /* BLUE */
-        radial-gradient(
-            ellipse 45% 80%
-            at 10% 50%,
-            #007bff 0%,
-            #0066ff 35%,
-            transparent 75%
-        ),
-
-        /* ORANGE */
-        radial-gradient(
-            ellipse 45% 80%
-            at 35% 50%,
-            #ff4d00 0%,
-            #ff7200 35%,
-            transparent 75%
-        ),
-
-        /* BLUE */
-        radial-gradient(
-            ellipse 45% 80%
-            at 60% 50%,
-            #006eff 0%,
-            #00aaff 35%,
-            transparent 75%
-        ),
-
-        /* ORANGE */
-        radial-gradient(
-            ellipse 45% 80%
-            at 85% 50%,
-            #ff4500 0%,
-            #ff7800 35%,
-            transparent 75%
-        ),
-
-        /* BASE */
         linear-gradient(
             110deg,
-            #0066ff 0%,
-            #008cff 20%,
-            #ff4d00 40%,
-            #ff7200 52%,
-            #006eff 72%,
-            #008cff 85%,
-            #ff4d00 100%
+
+            #006cff 0%,
+
+            #008cff 18%,
+
+            #00aaff 32%,
+
+            #ff5a00 50%,
+
+            #ff7a00 68%,
+
+            #ff4500 82%,
+
+            #006cff 100%
         );
 
 
-    /* =====================================================
-       LARGE GRADIENTS = SLOW, SMOOTH COLOR MOVEMENT
-       ===================================================== */
+    /*
+        Make the gradient much wider than the text.
+        This is what gives it room to FLOW.
+    */
 
-    background-size:
-
-        220% 220%,
-        240% 240%,
-        260% 260%,
-        240% 240%,
-        300% 300%;
+    background-size: 250% 100%;
 
 
-    background-position:
+    /*
+        Start slightly left.
+    */
 
-        0% 50%,
-        100% 50%,
-        0% 50%,
-        100% 50%,
-        0% 50%;
+    background-position: 0% 50%;
 
 
     background-repeat: no-repeat;
 
 
-    /* =====================================================
-       CONTINUOUS FLOW
-       ===================================================== */
+    /*
+        Smooth back-and-forth movement.
+        No snap at the end.
+    */
 
     animation:
-        liquidFlow
-        10s
+
+        orangeBlueFlow
+
+        12s
+
         ease-in-out
+
         infinite
+
         alternate;
 
 
-    /* =====================================================
-       GRADIENT INSIDE THE TEXT
-       ===================================================== */
+    /* Put gradient inside letters */
 
     color: transparent;
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
 
-    /* =====================================================
-       SUBTLE BLUE + ORANGE GLOW
-       ===================================================== */
+    /* Very subtle glow */
 
-    text-shadow:
+    filter:
 
-        0 0 3px rgba(
-            0,
-            102,
-            255,
-            0.55
-        ),
+        drop-shadow(
+            0 0 4px
+            rgba(0, 110, 255, 0.30)
+        )
 
-        0 0 8px rgba(
-            0,
-            102,
-            255,
-            0.25
-        ),
-
-        0 0 12px rgba(
-            255,
-            69,
-            0,
-            0.20
+        drop-shadow(
+            0 0 6px
+            rgba(255, 80, 0, 0.20)
         );
 }
 
 
 /* =========================================================
-   LIQUID FLOW ANIMATION
+   ORANGE ↔ BLUE FLOW
    ========================================================= */
 
-@keyframes liquidFlow {
+@keyframes orangeBlueFlow {
 
     0% {
 
-        background-position:
+        background-position: 0% 50%;
 
-            0% 50%,
-            100% 50%,
-            0% 50%,
-            100% 50%,
-            0% 50%;
     }
-
-
-    25% {
-
-        background-position:
-
-            25% 45%,
-            75% 55%,
-            20% 50%,
-            80% 45%,
-            25% 50%;
-    }
-
 
     50% {
 
-        background-position:
+        background-position: 50% 50%;
 
-            50% 50%,
-            50% 50%,
-            50% 45%,
-            50% 55%,
-            50% 50%;
     }
-
-
-    75% {
-
-        background-position:
-
-            75% 55%,
-            25% 45%,
-            80% 50%,
-            20% 55%,
-            75% 50%;
-    }
-
 
     100% {
 
-        background-position:
+        background-position: 100% 50%;
 
-            100% 50%,
-            0% 50%,
-            100% 50%,
-            0% 50%,
-            100% 50%;
     }
 }
