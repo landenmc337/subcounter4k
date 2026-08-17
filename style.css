@@ -42,8 +42,7 @@ body {
    ========================================================= */
 
 #counter-text,
-#counter-mask-text,
-#counter-glow {
+#counter-mask-text {
 
     font-family: "Orbitron", sans-serif;
 
@@ -72,21 +71,7 @@ body {
 
 
 /* =========================================================
-   SOFT GLOW
-   ========================================================= */
-
-#counter-glow {
-
-    fill: #ff5500;
-
-    opacity: .45;
-
-    filter: url(#glow);
-}
-
-
-/* =========================================================
-   FLAMES INSIDE NUMBERS
+   FIRE INSIDE NUMBERS
    ========================================================= */
 
 .flame {
@@ -97,7 +82,7 @@ body {
 }
 
 
-/* ORANGE FLAME */
+/* ORANGE */
 
 .flame-one {
 
@@ -113,7 +98,7 @@ body {
 }
 
 
-/* BLUE FLAME */
+/* BLUE */
 
 .flame-two {
 
@@ -130,7 +115,7 @@ body {
 
 
 /* =========================================================
-   FLAME MOTION
+   FLAME MOVEMENT
    ========================================================= */
 
 @keyframes flameOne {

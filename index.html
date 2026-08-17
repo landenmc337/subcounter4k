@@ -30,7 +30,7 @@
 
         <defs>
 
-            <!-- CLEAN FIRE GRADIENT -->
+            <!-- FIRE GRADIENT -->
             <linearGradient
                 id="fire-gradient"
                 x1="0"
@@ -38,6 +38,7 @@
                 x2="0"
                 y2="0"
             >
+
                 <stop offset="0%" stop-color="#0066ff"/>
                 <stop offset="12%" stop-color="#00aaff"/>
                 <stop offset="25%" stop-color="#ff3c00"/>
@@ -59,10 +60,11 @@
                     dur="2.4s"
                     repeatCount="indefinite"
                 />
+
             </linearGradient>
 
 
-            <!-- ORANGE/BLUE FLOW -->
+            <!-- MOVING ORANGE / BLUE HIGHLIGHT -->
             <linearGradient
                 id="flow-gradient"
                 x1="-1"
@@ -71,17 +73,41 @@
                 y2="0"
             >
 
-                <stop offset="0%" stop-color="#006eff" stop-opacity="0"/>
+                <stop
+                    offset="0%"
+                    stop-color="#006eff"
+                    stop-opacity="0"
+                />
 
-                <stop offset="25%" stop-color="#008cff" stop-opacity=".8"/>
+                <stop
+                    offset="25%"
+                    stop-color="#008cff"
+                    stop-opacity=".8"
+                />
 
-                <stop offset="45%" stop-color="#ff6500" stop-opacity=".9"/>
+                <stop
+                    offset="45%"
+                    stop-color="#ff6500"
+                    stop-opacity=".9"
+                />
 
-                <stop offset="55%" stop-color="#ffd34d" stop-opacity="1"/>
+                <stop
+                    offset="55%"
+                    stop-color="#ffd34d"
+                    stop-opacity="1"
+                />
 
-                <stop offset="75%" stop-color="#ff5500" stop-opacity=".8"/>
+                <stop
+                    offset="75%"
+                    stop-color="#ff5500"
+                    stop-opacity=".8"
+                />
 
-                <stop offset="100%" stop-color="#006eff" stop-opacity="0"/>
+                <stop
+                    offset="100%"
+                    stop-color="#006eff"
+                    stop-opacity="0"
+                />
 
                 <animate
                     attributeName="x1"
@@ -100,28 +126,6 @@
             </linearGradient>
 
 
-            <!-- GLOW ONLY, NO DISTORTION -->
-            <filter
-                id="glow"
-                x="-30%"
-                y="-50%"
-                width="160%"
-                height="200%"
-            >
-
-                <feGaussianBlur
-                    stdDeviation="4"
-                    result="blur"
-                />
-
-                <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-
-            </filter>
-
-
             <!-- TEXT MASK -->
             <clipPath id="counter-mask">
 
@@ -137,16 +141,7 @@
         </defs>
 
 
-        <!-- GLOW BEHIND TEXT -->
-        <text
-            id="counter-glow"
-            x="450"
-            y="125"
-            text-anchor="middle"
-        >0 / 0</text>
-
-
-        <!-- PERFECTLY CLEAN ORBITRON TEXT -->
+        <!-- MAIN COUNTER -->
         <text
             id="counter-text"
             x="450"
@@ -155,9 +150,12 @@
         >0 / 0</text>
 
 
-        <!-- MOVEMENT INSIDE THE NUMBERS -->
-        <g clip-path="url(#counter-mask)">
+        <!-- MOVING FIRE INSIDE NUMBERS -->
+        <g
+            clip-path="url(#counter-mask)"
+        >
 
+            <!-- Moving color -->
             <rect
                 x="0"
                 y="0"
@@ -167,7 +165,8 @@
                 opacity=".55"
             />
 
-            <!-- FIRE LICK #1 -->
+
+            <!-- Orange flame -->
             <path
                 class="flame flame-one"
                 d="
@@ -178,10 +177,12 @@
                 C550 65 600 145 665 100
                 C730 55 790 140 900 85
                 L900 190
-                L0 190 Z"
+                L0 190
+                Z"
             />
 
-            <!-- FIRE LICK #2 -->
+
+            <!-- Blue flame -->
             <path
                 class="flame flame-two"
                 d="
@@ -191,7 +192,8 @@
                 C510 75 570 160 650 115
                 C730 70 800 150 900 105
                 L900 190
-                L0 190 Z"
+                L0 190
+                Z"
             />
 
         </g>
