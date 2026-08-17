@@ -24,7 +24,6 @@ body {
     height: 100%;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
@@ -38,11 +37,10 @@ body {
 
 
 /* =========================================================
-   MAIN COUNTER
+   COUNTER
    ========================================================= */
 
-#counter-text,
-#counter-sheen {
+#counter-text {
 
     font-family: "Orbitron", sans-serif;
 
@@ -51,16 +49,6 @@ body {
     font-weight: 900;
 
     letter-spacing: -2px;
-
-    dominant-baseline: auto;
-}
-
-
-/* =========================================================
-   FIRE NUMBERS
-   ========================================================= */
-
-#counter-text {
 
     fill: url(#fire-gradient);
 
@@ -73,18 +61,19 @@ body {
 
 
 /* =========================================================
-   MOVING FIRE HIGHLIGHT
+   FIRE LAYER
    ========================================================= */
 
-#counter-sheen {
-
-    fill: url(#fire-sheen);
-
-    stroke: none;
-
+.fire-layer {
     pointer-events: none;
+}
 
-    opacity: .7;
 
-    mix-blend-mode: screen;
+/* =========================================================
+   MASK IS NEVER DISPLAYED
+   ========================================================= */
+
+#counter-mask-text {
+    fill: white;
+    stroke: none;
 }

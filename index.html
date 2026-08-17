@@ -19,185 +19,102 @@
 
 <body>
 
-    <main class="counter-container">
+<main class="counter-container">
 
-        <svg
-            class="counter-svg"
-            viewBox="0 0 900 180"
-            role="img"
-            aria-label="Subscriber goal counter"
+    <svg
+        class="counter-svg"
+        viewBox="0 0 900 180"
+        role="img"
+        aria-label="Subscriber goal counter"
+    >
+
+        <defs>
+
+            <!-- FIRE GRADIENT -->
+            <linearGradient
+                id="fire-gradient"
+                x1="0"
+                y1="1"
+                x2="0"
+                y2="0"
+            >
+
+                <stop offset="0%" stop-color="#006eff"/>
+                <stop offset="15%" stop-color="#00bfff"/>
+                <stop offset="30%" stop-color="#ff3b00"/>
+                <stop offset="48%" stop-color="#ff6500"/>
+                <stop offset="65%" stop-color="#ffad00"/>
+                <stop offset="82%" stop-color="#fff05c"/>
+                <stop offset="100%" stop-color="#ff4500"/>
+
+                <animate
+                    attributeName="y1"
+                    values="1;0.7;1"
+                    dur="2.5s"
+                    repeatCount="indefinite"
+                />
+
+                <animate
+                    attributeName="y2"
+                    values="0;-0.3;0"
+                    dur="2.5s"
+                    repeatCount="indefinite"
+                />
+
+            </linearGradient>
+
+
+            <!-- MASK -->
+            <clipPath id="counter-mask">
+
+                <text
+                    id="counter-mask-text"
+                    x="450"
+                    y="125"
+                    text-anchor="middle"
+                >0 / 0</text>
+
+            </clipPath>
+
+        </defs>
+
+
+        <!-- ================================================= -->
+        <!-- ONLY VISIBLE TEXT -->
+        <!-- ================================================= -->
+
+        <text
+            id="counter-text"
+            x="450"
+            y="125"
+            text-anchor="middle"
+        >0 / 0</text>
+
+
+        <!-- ================================================= -->
+        <!-- FIRE EFFECT INSIDE THE TEXT -->
+        <!-- ================================================= -->
+
+        <g
+            class="fire-layer"
+            clip-path="url(#counter-mask)"
         >
 
-            <defs>
+            <rect
+                x="0"
+                y="0"
+                width="900"
+                height="180"
+                fill="url(#fire-gradient)"
+            />
 
-                <!-- ANIMATED FIRE GRADIENT -->
-                <linearGradient
-                    id="fire-gradient"
-                    x1="0"
-                    y1="1"
-                    x2="0"
-                    y2="0"
-                    gradientUnits="objectBoundingBox"
-                >
+        </g>
 
-                    <stop offset="0%" stop-color="#006eff">
+    </svg>
 
-                        <animate
-                            attributeName="stop-color"
-                            values="#006eff;#00bfff;#006eff"
-                            dur="3s"
-                            repeatCount="indefinite"
-                        />
+</main>
 
-                    </stop>
-
-                    <stop offset="18%" stop-color="#00aaff">
-
-                        <animate
-                            attributeName="stop-color"
-                            values="#00aaff;#008cff;#00aaff"
-                            dur="3s"
-                            repeatCount="indefinite"
-                        />
-
-                    </stop>
-
-                    <stop offset="32%" stop-color="#ff3b00">
-
-                        <animate
-                            attributeName="stop-color"
-                            values="#ff3b00;#ff6500;#ff3b00"
-                            dur="2.2s"
-                            repeatCount="indefinite"
-                        />
-
-                    </stop>
-
-                    <stop offset="50%" stop-color="#ff7200">
-
-                        <animate
-                            attributeName="stop-color"
-                            values="#ff7200;#ffb000;#ff7200"
-                            dur="1.8s"
-                            repeatCount="indefinite"
-                        />
-
-                    </stop>
-
-                    <stop offset="68%" stop-color="#ffd000">
-
-                        <animate
-                            attributeName="stop-color"
-                            values="#ffd000;#fff36a;#ffd000"
-                            dur="2.1s"
-                            repeatCount="indefinite"
-                        />
-
-                    </stop>
-
-                    <stop offset="84%" stop-color="#ff6500">
-
-                        <animate
-                            attributeName="stop-color"
-                            values="#ff6500;#ff3b00;#ff6500"
-                            dur="2.5s"
-                            repeatCount="indefinite"
-                        />
-
-                    </stop>
-
-                    <stop offset="100%" stop-color="#ff3b00"/>
-
-                </linearGradient>
-
-
-                <!-- MOVING HORIZONTAL FIRE LIGHT -->
-                <linearGradient
-                    id="fire-sheen"
-                    x1="-1"
-                    y1="0"
-                    x2="1"
-                    y2="0"
-                >
-
-                    <stop
-                        offset="0%"
-                        stop-color="#ffffff"
-                        stop-opacity="0"
-                    />
-
-                    <stop
-                        offset="45%"
-                        stop-color="#fff36a"
-                        stop-opacity="0"
-                    />
-
-                    <stop
-                        offset="50%"
-                        stop-color="#ffffff"
-                        stop-opacity=".8"
-                    />
-
-                    <stop
-                        offset="55%"
-                        stop-color="#fff36a"
-                        stop-opacity="0"
-                    />
-
-                    <stop
-                        offset="100%"
-                        stop-color="#ffffff"
-                        stop-opacity="0"
-                    />
-
-                    <animate
-                        attributeName="x1"
-                        values="-1;1;-1"
-                        dur="4s"
-                        repeatCount="indefinite"
-                    />
-
-                    <animate
-                        attributeName="x2"
-                        values="0;2;0"
-                        dur="4s"
-                        repeatCount="indefinite"
-                    />
-
-                </linearGradient>
-
-            </defs>
-
-
-            <!-- ================================================= -->
-            <!-- ACTUAL COUNTER -->
-            <!-- ONLY ONE VISIBLE TEXT ELEMENT -->
-            <!-- ================================================= -->
-
-            <text
-                id="counter-text"
-                x="450"
-                y="125"
-                text-anchor="middle"
-            >0 / 0</text>
-
-
-            <!-- ================================================= -->
-            <!-- SUBTLE MOVING HIGHLIGHT -->
-            <!-- ================================================= -->
-
-            <text
-                id="counter-sheen"
-                x="450"
-                y="125"
-                text-anchor="middle"
-            >0 / 0</text>
-
-        </svg>
-
-    </main>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
