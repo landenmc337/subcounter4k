@@ -24,7 +24,6 @@ body {
     height: 100%;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
@@ -38,7 +37,7 @@ body {
 
 
 /* =========================================================
-   ORBITRON
+   COUNTER
    ========================================================= */
 
 #counter-text,
@@ -55,114 +54,131 @@ body {
 
 
 /* =========================================================
-   CLEAN MAIN TEXT
+   ACTUAL VISIBLE TEXT
    ========================================================= */
 
 #counter-text {
 
     fill: url(#fire-gradient);
 
-    stroke: #ff6a00;
+    stroke: #ff6500;
 
-    stroke-width: 1.5px;
+    stroke-width: 2px;
 
     paint-order: stroke fill;
 }
 
 
 /* =========================================================
-   FIRE INSIDE NUMBERS
+   MASK TEXT
+   IMPORTANT: NEVER DISPLAY IT
    ========================================================= */
 
-.flame {
+#counter-mask-text {
 
-    transform-origin: center bottom;
+    fill: white;
+
+    stroke: none;
 
     pointer-events: none;
 }
 
 
-/* ORANGE */
+/* =========================================================
+   FIRE
+   ========================================================= */
 
-.flame-one {
+.fire-effect {
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FLAME 1
+   ========================================================= */
+
+.flame-orange {
 
     fill: #ff5a00;
 
     opacity: .55;
 
     animation:
-        flameOne
+        orangeFlame
         1.8s
         ease-in-out
         infinite alternate;
 }
 
 
-/* BLUE */
+/* =========================================================
+   FLAME 2
+   ========================================================= */
 
-.flame-two {
+.flame-blue {
 
     fill: #008cff;
 
-    opacity: .45;
+    opacity: .4;
 
     animation:
-        flameTwo
-        2.3s
+        blueFlame
+        2.2s
         ease-in-out
         infinite alternate;
 }
 
 
 /* =========================================================
-   FLAME MOVEMENT
+   ANIMATION
    ========================================================= */
 
-@keyframes flameOne {
+@keyframes orangeFlame {
 
     0% {
         transform:
-            translateX(-18px)
-            translateY(18px)
-            scaleY(.88);
+            translateX(-20px)
+            translateY(15px)
+            scaleY(.9);
     }
 
     50% {
         transform:
-            translateX(10px)
+            translateX(5px)
             translateY(-5px)
-            scaleY(1.08);
-    }
-
-    100% {
-        transform:
-            translateX(22px)
-            translateY(12px)
-            scaleY(.94);
-    }
-}
-
-
-@keyframes flameTwo {
-
-    0% {
-        transform:
-            translateX(18px)
-            translateY(20px)
-            scaleY(.90);
-    }
-
-    50% {
-        transform:
-            translateX(-8px)
-            translateY(0)
             scaleY(1.05);
     }
 
     100% {
         transform:
-            translateX(-22px)
-            translateY(14px)
-            scaleY(.92);
+            translateX(25px)
+            translateY(10px)
+            scaleY(.94);
+    }
+}
+
+
+@keyframes blueFlame {
+
+    0% {
+        transform:
+            translateX(20px)
+            translateY(15px)
+            scaleY(.9);
+    }
+
+    50% {
+        transform:
+            translateX(-5px)
+            translateY(-3px)
+            scaleY(1.04);
+    }
+
+    100% {
+        transform:
+            translateX(-25px)
+            translateY(10px)
+            scaleY(.94);
     }
 }
