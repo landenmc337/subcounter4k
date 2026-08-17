@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap"
         rel="stylesheet"
     >
 
@@ -19,327 +19,188 @@
 
 <body>
 
-    <main class="counter-container">
+<main class="counter-container">
 
-        <svg
-            class="counter-svg"
-            viewBox="0 0 900 180"
-            role="img"
-            aria-label="Subscriber goal counter"
-        >
+    <svg
+        class="counter-svg"
+        viewBox="0 0 900 180"
+        role="img"
+        aria-label="Subscriber goal counter"
+    >
 
-            <defs>
+        <defs>
 
-                <!-- ================================================= -->
-                <!-- FIRE GRADIENT -->
-                <!-- ================================================= -->
+            <!-- CLEAN FIRE GRADIENT -->
+            <linearGradient
+                id="fire-gradient"
+                x1="0"
+                y1="1"
+                x2="0"
+                y2="0"
+            >
+                <stop offset="0%" stop-color="#0066ff"/>
+                <stop offset="12%" stop-color="#00aaff"/>
+                <stop offset="25%" stop-color="#ff3c00"/>
+                <stop offset="50%" stop-color="#ff7800"/>
+                <stop offset="72%" stop-color="#ffb000"/>
+                <stop offset="88%" stop-color="#ffe45c"/>
+                <stop offset="100%" stop-color="#ff5a00"/>
 
-                <linearGradient
-                    id="fire-gradient"
-                    x1="0"
-                    y1="180"
-                    x2="0"
-                    y2="-180"
-                    gradientUnits="userSpaceOnUse"
-                >
+                <animate
+                    attributeName="y1"
+                    values="1;0.72;1"
+                    dur="2.4s"
+                    repeatCount="indefinite"
+                />
 
-                    <stop
-                        offset="0%"
-                        stop-color="#007BFF"
-                    />
-
-                    <stop
-                        offset="12%"
-                        stop-color="#00BFFF"
-                    />
-
-                    <stop
-                        offset="25%"
-                        stop-color="#FF4D00"
-                    />
-
-                    <stop
-                        offset="45%"
-                        stop-color="#FF7A00"
-                    />
-
-                    <stop
-                        offset="62%"
-                        stop-color="#FFD000"
-                    />
-
-                    <stop
-                        offset="78%"
-                        stop-color="#FFF36A"
-                    />
-
-                    <stop
-                        offset="100%"
-                        stop-color="#FF3B00"
-                    />
-
-                    <animate
-                        attributeName="y1"
-                        values="180;-180;180"
-                        dur="4s"
-                        repeatCount="indefinite"
-                    />
-
-                    <animate
-                        attributeName="y2"
-                        values="-180;180;-180"
-                        dur="4s"
-                        repeatCount="indefinite"
-                    />
-
-                </linearGradient>
+                <animate
+                    attributeName="y2"
+                    values="0;-0.28;0"
+                    dur="2.4s"
+                    repeatCount="indefinite"
+                />
+            </linearGradient>
 
 
-                <!-- ================================================= -->
-                <!-- MOVING FIRE HIGHLIGHT -->
-                <!-- ================================================= -->
-
-                <linearGradient
-                    id="fire-highlight"
-                    x1="-900"
-                    y1="0"
-                    x2="0"
-                    y2="0"
-                    gradientUnits="userSpaceOnUse"
-                >
-
-                    <stop
-                        offset="0%"
-                        stop-color="#FF3B00"
-                        stop-opacity="0"
-                    />
-
-                    <stop
-                        offset="25%"
-                        stop-color="#FF7A00"
-                        stop-opacity=".8"
-                    />
-
-                    <stop
-                        offset="50%"
-                        stop-color="#FFF36A"
-                        stop-opacity="1"
-                    />
-
-                    <stop
-                        offset="75%"
-                        stop-color="#FF7A00"
-                        stop-opacity=".8"
-                    />
-
-                    <stop
-                        offset="100%"
-                        stop-color="#FF3B00"
-                        stop-opacity="0"
-                    />
-
-                    <animate
-                        attributeName="x1"
-                        values="-900;900;-900"
-                        dur="5s"
-                        repeatCount="indefinite"
-                    />
-
-                    <animate
-                        attributeName="x2"
-                        values="0;1800;0"
-                        dur="5s"
-                        repeatCount="indefinite"
-                    />
-
-                </linearGradient>
-
-
-                <!-- ================================================= -->
-                <!-- FIRE DISTORTION -->
-                <!-- ================================================= -->
-
-                <filter
-                    id="fire-distortion"
-                    x="-20%"
-                    y="-30%"
-                    width="140%"
-                    height="160%"
-                >
-
-                    <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.018 0.055"
-                        numOctaves="2"
-                        seed="7"
-                        result="noise"
-                    >
-
-                        <animate
-                            attributeName="baseFrequency"
-                            values="
-                                0.018 0.055;
-                                0.024 0.075;
-                                0.018 0.055
-                            "
-                            dur="3s"
-                            repeatCount="indefinite"
-                        />
-
-                    </feTurbulence>
-
-                    <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="noise"
-                        scale="12"
-                        xChannelSelector="R"
-                        yChannelSelector="G"
-                    />
-
-                </filter>
-
-
-                <!-- ================================================= -->
-                <!-- SOFT FIRE GLOW -->
-                <!-- ================================================= -->
-
-                <filter
-                    id="fire-glow"
-                    x="-30%"
-                    y="-40%"
-                    width="160%"
-                    height="180%"
-                >
-
-                    <feGaussianBlur
-                        stdDeviation="5"
-                        result="blur"
-                    />
-
-                    <feMerge>
-
-                        <feMergeNode
-                            in="blur"
-                        />
-
-                        <feMergeNode
-                            in="SourceGraphic"
-                        />
-
-                    </feMerge>
-
-                </filter>
-
-
-                <!-- ================================================= -->
-                <!-- TEXT MASK -->
-                <!-- ================================================= -->
-
-                <clipPath id="counter-text-mask">
-
-                    <text
-                        id="counter-mask-text"
-                        x="450"
-                        y="125"
-                        text-anchor="middle"
-                    >0 / 0</text>
-
-                </clipPath>
-
-            </defs>
-
-
-            <!-- ===================================================== -->
-            <!-- OUTER FIRE GLOW -->
-            <!-- ===================================================== -->
-
-            <text
-                id="counter-glow"
-                x="450"
-                y="125"
-                text-anchor="middle"
-            >0 / 0</text>
-
-
-            <!-- ===================================================== -->
-            <!-- MAIN FIRE TEXT -->
-            <!-- ===================================================== -->
-
-            <text
-                id="counter-text"
-                x="450"
-                y="125"
-                text-anchor="middle"
-            >0 / 0</text>
-
-
-            <!-- ===================================================== -->
-            <!-- MOVING FIRE INSIDE TEXT -->
-            <!-- ===================================================== -->
-
-            <g
-                id="fire-layer"
-                clip-path="url(#counter-text-mask)"
+            <!-- ORANGE/BLUE FLOW -->
+            <linearGradient
+                id="flow-gradient"
+                x1="-1"
+                y1="0"
+                x2="1"
+                y2="0"
             >
 
-                <rect
-                    x="-100"
-                    y="-100"
-                    width="1100"
-                    height="400"
-                    fill="url(#fire-gradient)"
-                    filter="url(#fire-distortion)"
+                <stop offset="0%" stop-color="#006eff" stop-opacity="0"/>
+
+                <stop offset="25%" stop-color="#008cff" stop-opacity=".8"/>
+
+                <stop offset="45%" stop-color="#ff6500" stop-opacity=".9"/>
+
+                <stop offset="55%" stop-color="#ffd34d" stop-opacity="1"/>
+
+                <stop offset="75%" stop-color="#ff5500" stop-opacity=".8"/>
+
+                <stop offset="100%" stop-color="#006eff" stop-opacity="0"/>
+
+                <animate
+                    attributeName="x1"
+                    values="-1;1;-1"
+                    dur="5s"
+                    repeatCount="indefinite"
                 />
 
-                <rect
-                    x="-900"
-                    y="-100"
-                    width="1800"
-                    height="400"
-                    fill="url(#fire-highlight)"
-                    opacity=".65"
+                <animate
+                    attributeName="x2"
+                    values="1;3;1"
+                    dur="5s"
+                    repeatCount="indefinite"
                 />
 
+            </linearGradient>
 
-                <!-- FIRE WAVES -->
 
-                <path
-                    class="flame-wave flame-wave-1"
-                    d="
-                        M0 150
-                        C80 110 120 175 200 130
-                        C280 85 320 165 400 120
-                        C480 75 530 160 610 115
-                        C700 65 760 150 900 95
-                        L900 250
-                        L0 250
-                        Z
-                    "
+            <!-- GLOW ONLY, NO DISTORTION -->
+            <filter
+                id="glow"
+                x="-30%"
+                y="-50%"
+                width="160%"
+                height="200%"
+            >
+
+                <feGaussianBlur
+                    stdDeviation="4"
+                    result="blur"
                 />
 
-                <path
-                    class="flame-wave flame-wave-2"
-                    d="
-                        M0 175
-                        C100 130 150 190 240 145
-                        C330 100 390 185 470 135
-                        C550 90 620 180 700 125
-                        C790 75 840 150 900 115
-                        L900 250
-                        L0 250
-                        Z
-                    "
-                />
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
 
-            </g>
+            </filter>
 
 
-        </svg>
+            <!-- TEXT MASK -->
+            <clipPath id="counter-mask">
 
-    </main>
+                <text
+                    id="counter-mask-text"
+                    x="450"
+                    y="125"
+                    text-anchor="middle"
+                >0 / 0</text>
+
+            </clipPath>
+
+        </defs>
 
 
-    <script src="script.js"></script>
+        <!-- GLOW BEHIND TEXT -->
+        <text
+            id="counter-glow"
+            x="450"
+            y="125"
+            text-anchor="middle"
+        >0 / 0</text>
+
+
+        <!-- PERFECTLY CLEAN ORBITRON TEXT -->
+        <text
+            id="counter-text"
+            x="450"
+            y="125"
+            text-anchor="middle"
+        >0 / 0</text>
+
+
+        <!-- MOVEMENT INSIDE THE NUMBERS -->
+        <g clip-path="url(#counter-mask)">
+
+            <rect
+                x="0"
+                y="0"
+                width="900"
+                height="180"
+                fill="url(#flow-gradient)"
+                opacity=".55"
+            />
+
+            <!-- FIRE LICK #1 -->
+            <path
+                class="flame flame-one"
+                d="
+                M0 145
+                C70 115 110 145 160 115
+                C220 80 260 150 320 110
+                C380 70 430 150 490 105
+                C550 65 600 145 665 100
+                C730 55 790 140 900 85
+                L900 190
+                L0 190 Z"
+            />
+
+            <!-- FIRE LICK #2 -->
+            <path
+                class="flame flame-two"
+                d="
+                M0 160
+                C90 125 140 165 220 125
+                C300 85 350 165 430 120
+                C510 75 570 160 650 115
+                C730 70 800 150 900 105
+                L900 190
+                L0 190 Z"
+            />
+
+        </g>
+
+    </svg>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -6,6 +6,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+
     width: 100%;
     height: 100%;
 
@@ -15,9 +16,7 @@ body {
 }
 
 body {
-    font-family:
-        "Orbitron",
-        sans-serif;
+    font-family: "Orbitron", sans-serif;
 }
 
 .counter-container {
@@ -38,189 +37,147 @@ body {
 }
 
 
-/* ========================================================= */
-/* MAIN COUNTER */
-/* ========================================================= */
+/* =========================================================
+   ORBITRON
+   ========================================================= */
 
 #counter-text,
 #counter-mask-text,
 #counter-glow {
 
-    font-family:
-        "Orbitron",
-        sans-serif;
+    font-family: "Orbitron", sans-serif;
 
     font-size: 100px;
 
     font-weight: 900;
 
-    letter-spacing: 0;
+    letter-spacing: -2px;
 }
 
 
-/* ========================================================= */
-/* FIRE GLOW */
-/* ========================================================= */
-
-#counter-glow {
-
-    fill: none;
-
-    stroke: #ff5a00;
-
-    stroke-width: 7;
-
-    opacity: .55;
-
-    filter: url(#fire-glow);
-
-}
-
-
-/* ========================================================= */
-/* MAIN FIRE TEXT */
-/* ========================================================= */
+/* =========================================================
+   CLEAN MAIN TEXT
+   ========================================================= */
 
 #counter-text {
 
     fill: url(#fire-gradient);
 
-    stroke: #ff4d00;
+    stroke: #ff6a00;
 
-    stroke-width: 2;
+    stroke-width: 1.5px;
 
     paint-order: stroke fill;
-
-    filter: url(#fire-distortion);
-
 }
 
 
-/* ========================================================= */
-/* FLAME WAVES */
-/* ========================================================= */
+/* =========================================================
+   SOFT GLOW
+   ========================================================= */
 
-.flame-wave {
+#counter-glow {
 
-    fill: #ff5a00;
+    fill: #ff5500;
 
-    opacity: .35;
+    opacity: .45;
+
+    filter: url(#glow);
+}
+
+
+/* =========================================================
+   FLAMES INSIDE NUMBERS
+   ========================================================= */
+
+.flame {
 
     transform-origin: center bottom;
 
+    pointer-events: none;
 }
 
 
-.flame-wave-1 {
+/* ORANGE FLAME */
+
+.flame-one {
+
+    fill: #ff5a00;
+
+    opacity: .55;
 
     animation:
-        flame-rise-1
-        2.2s
+        flameOne
+        1.8s
         ease-in-out
         infinite alternate;
-
 }
 
 
-.flame-wave-2 {
+/* BLUE FLAME */
 
-    fill: #ffd000;
+.flame-two {
 
-    opacity: .28;
+    fill: #008cff;
+
+    opacity: .45;
 
     animation:
-        flame-rise-2
-        1.7s
+        flameTwo
+        2.3s
         ease-in-out
         infinite alternate;
-
 }
 
 
-/* ========================================================= */
-/* FLAME MOVEMENT */
-/* ========================================================= */
+/* =========================================================
+   FLAME MOTION
+   ========================================================= */
 
-@keyframes flame-rise-1 {
+@keyframes flameOne {
 
     0% {
         transform:
+            translateX(-18px)
             translateY(18px)
-            scaleY(.92);
+            scaleY(.88);
     }
 
     50% {
         transform:
-            translateY(-4px)
-            scaleY(1.06);
-    }
-
-    100% {
-        transform:
-            translateY(14px)
-            scaleY(.96);
-    }
-
-}
-
-
-@keyframes flame-rise-2 {
-
-    0% {
-        transform:
-            translateY(12px)
-            translateX(-8px)
-            scaleY(.95);
-    }
-
-    50% {
-        transform:
-            translateY(-8px)
-            translateX(8px)
+            translateX(10px)
+            translateY(-5px)
             scaleY(1.08);
     }
 
     100% {
         transform:
-            translateY(10px)
-            translateX(-5px)
-            scaleY(.97);
+            translateX(22px)
+            translateY(12px)
+            scaleY(.94);
     }
-
 }
 
 
-/* ========================================================= */
-/* FIRE FLICKER */
-/* ========================================================= */
-
-#counter-text {
-
-    animation:
-        fire-flicker
-        1.8s
-        ease-in-out
-        infinite alternate;
-
-}
-
-
-@keyframes fire-flicker {
+@keyframes flameTwo {
 
     0% {
-        opacity: .94;
+        transform:
+            translateX(18px)
+            translateY(20px)
+            scaleY(.90);
     }
 
-    35% {
-        opacity: 1;
-    }
-
-    60% {
-        opacity: .96;
+    50% {
+        transform:
+            translateX(-8px)
+            translateY(0)
+            scaleY(1.05);
     }
 
     100% {
-        opacity: 1;
+        transform:
+            translateX(-22px)
+            translateY(14px)
+            scaleY(.92);
     }
-
 }
